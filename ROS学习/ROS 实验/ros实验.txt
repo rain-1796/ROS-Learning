@@ -1,0 +1,26 @@
+roslaunch turtlebot3_gazebo turtlebot3_world.launch #打开Gazebo world仿真环境
+#打开rviz进行Slam建图
+roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping 
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py #启动键盘遥控程序
+roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+
+rosrun map_server map_saver -f ~/map #保存地图
+rosrun map_server map_server map.yaml #读取地图
+
+1.打开仿真环境gazebo:  roslaunch turtlebot3_gazebo turtlebot3_world.launch
+2.打开rviz，执行自主导航:  roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=/home/zhao/map.yaml
+
+source ./devel/setup.bash #刷新环境变量
+矩形路径：roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
+		rosrun turtlebot3_movement rectangle_path
+话题通信：rosrun pub_sub homework_pub1 #发布整数消息
+		   rosrun pub_sub homework_pub2 #发布字符串消息 
+		   rosrun pub_sub homework_sub   #启动订阅方
+rqt_graph #打开计算图
+
+服务通信：rosrun server_client homework_server #启动服务器
+		rosrun server_client homework_client  10 15 #启动客户端
+
+action： 	rosrun demo01_action action01_server #启动服务器
+		rosrun demo01_action action02_client  #启动客户端

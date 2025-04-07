@@ -1,0 +1,45 @@
+wget http://fishros.com/install -O fishros && bash fishros #鱼香ros
+sudo apt update #更新apt
+Ctrl + #Vscode放大效果
+Ctrl - #Vscode缩小效果
+code . #在工作空间打开终端输入该指令，进入Vscode
+Ctrl Shift ` #在Vscode中打开终端
+Ctrl Alt T #打开Terminator
+pwd #获得当前文件夹路径
+clear #清屏
+Ctrl P #回滚之前的指令
+Ctrl F #在vscode中替换文本
+上箭头 #在终端回滚之前的指令
+cd .. #在终端中输入，返回上级目录
+
+
+catkin_make #编译
+Ctrl + Shift + B #在Vscode中编译
+
+roscore #启动ros核心
+source ./devel/setup.bash #刷新环境变量
+rosrun 包名 文件名（节点名） #执行ros程序
+
+rqt_graph 或 rosrun rqt_graph rqt_graph #打开计算图
+rviz #打开可视化三维工具
+rosrun tf2_tools view_frames.py #生成树形结构坐标系谱图pdf
+evince frames.pdf #查看pdf的命令（或者直接去工作空间文件夹里看）
+check_urdf #检查urdf文件有没有语法问题
+urdf_to_graphiz #查看urdf结构图并生成pdf
+rosrun gazebo_ros gazebo #打开gazebo
+
+rostopic echo 话题名 #查看发布的消息
+rostopic info 话题名 #查看话题的格式
+rosmsg info Type名 #查看消息的格式
+
+rosservice call 服务名 tab两次 #查阅服务
+rosparam list #查看参数列表
+rosparam get /参数 #查看参数的值
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py #启动键盘遥控程序 _speed:=xxx _turn:=xxx #后面加上可以设置线速度和角速度
+
+
+#创建工作空间
+mkdir -p demo03_ws/src
+cd demo03_ws
+catkin_make

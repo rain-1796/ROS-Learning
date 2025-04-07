@@ -1,0 +1,2 @@
+1.打开仿真环境gazebo:  roslaunch turtlebot3_gazebo turtlebot3_house.launch
+2.打开rviz，执行自主导航:  roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=/home/zhao/map.yaml
